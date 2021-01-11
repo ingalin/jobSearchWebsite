@@ -9,15 +9,20 @@ class NewJob extends Component {
         this.state = {
             visible: false,
             itemInWishList: false,
-            itemAlreadyInList: false,
-
-            test: false
+            itemAlreadyInList: false, 
+            idWishlist: '',
+            titleWishlist: '',
+            companyWishlist: '',
+            jobUrlWishlist: '',
         }
     }
 
 
     // Add a job to Wish List Firebase
     addToWishlist(thisId, jobTitle, company, jobUrl) {
+        if (!company || company == "") {company = "---"}
+        if (!jobTitle || jobTitle == "") { jobTitle = "---" }
+        if (!jobUrl || jobUrl == "") { jobUrl = `<a href="#"></a>` }
             this.setState({
                 idWishlist: thisId,
                 titleWishlist: jobTitle, 
@@ -93,14 +98,14 @@ class NewJob extends Component {
                         {category !== "Unknown" && category && category !== "" ? <h5>{parse(category)}</h5> : null}
                     </div>
                     <div className="company">
-                        {company && company !== "" ? <h3>{parse(company)}</h3> : <h2>Unknown</h2>}
+                        {company && company !== "" ? <h3>{parse(company)}</h3> : <h3>---</h3>}
                         {contract && contract !== "" ? <h4>{parse(contract)}</h4> : null}
                     </div>
                     <div className="buttonsInfo">
                         {/* Show/Hide Description on Button Click */}
                         <button className="showDetails" onClick={() => this.showData(keyId)}>{this.state.visible ? 'Hide Details' : 'Show Details'}</button>
                         {/* Add to Wish List Button, show onl when logged in, otherise a message */}
-                        {this.props.passUserId != null ? <button className="saveForLater" onClick={() => this.addToWishlist(keyId, jobTitle, company, jobUrl)}>Save For Later</button> : null}
+                        {(this.props.passUserId != null ? <button className="saveForLater" onClick={() => this.addToWishlist(keyId, jobTitle, company, jobUrl)}>Save For Later</button> : null )}
                     </div>
                 </div>
                 {this.state.visible && this.state.idCliked == keyId ? 

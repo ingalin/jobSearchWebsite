@@ -54,9 +54,9 @@ class FirebaseJobList extends Component {
                             <div className="closeButtonWish">
                                 <button className="removeFromWishlist" onClick={() => this.removeJobFromWishlist(eachWishlistJob.key)} aria-label="Close sign in form"><FontAwesomeIcon icon={faTimesCircle} /></button>
                             </div>
-                            <h2>{parse(eachWishlistJob.dataFirebase.jobTitle)}</h2>
-                            <h3>{parse(eachWishlistJob.dataFirebase.company)}</h3> 
-                            {eachWishlistJob.dataFirebase.jobUrl && eachWishlistJob.dataFirebase.jobUrl !== "" ? <a href={eachWishlistJob.dataFirebase.jobUrl}>Apply Here</a> : null}
+                            {eachWishlistJob.dataFirebase.jobTitle && eachWishlistJob.dataFirebase.jobTitle !== "" ? <h2>{parse(eachWishlistJob.dataFirebase.jobTitle)}</h2>  : <h2>---</h2>}
+                            {eachWishlistJob.dataFirebase.company && eachWishlistJob.dataFirebase.company !== "" ? <h3>{parse(eachWishlistJob.dataFirebase.company)}</h3> : <h3>---</h3>}
+                            {eachWishlistJob.dataFirebase.jobUrl && eachWishlistJob.dataFirebase.jobUrl !== "" ? <a href={eachWishlistJob.dataFirebase.jobUrl}>Apply Here</a> : <p>---</p>}
                         </li>
                     );
                 })

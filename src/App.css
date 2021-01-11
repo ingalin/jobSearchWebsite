@@ -769,7 +769,8 @@ aside h5 {
 
   .keywordsDiv {
     align-items: flex-start;
-    min-height: 30px;
+    min-height: 65px;
+    margin-bottom: 10px;
   }
   
   .citySearch {
@@ -790,9 +791,17 @@ aside h5 {
     padding: 50px 30px 100px 20px;
   }
 
+  .searchOptions {
+    flex-direction: column;
+  }
+
   .buttonsInfo {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .keywordsDiv p{
+    white-space: normal;
   }
 }
 
