@@ -1,0 +1,886 @@
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+
+*, *:before, *:after {box-sizing: inherit}
+
+.srOnly { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nanum+Gothic:wght@400;700&display=swap');
+
+/* Fonts used */
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Nanum Gothic', sans-serif; */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2.2rem;
+  font-family: 'Nanum Gothic', sans-serif;
+  line-height: 2.9rem;
+}
+
+.wrapper {
+  max-width: 1140px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+a {
+  color: #4e007a;
+  padding: 8px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  border: 3px #4e007a solid;
+  min-width: 200px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+a:hover, a:focus {
+  background-color: #4e007a;
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  color: white;
+  line-height: 1.2;
+  font-size: 2.5rem;
+  margin-top: 15px;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif
+}
+
+h4 {
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 1.6rem;
+}
+
+h5 {
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+}
+
+/* Header */
+
+header {
+  background: url(./assets/awesome-pattern-backgrounds-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  position: sticky;
+  top: 0;
+  padding-bottom: 5px;
+  margin: 0 0 40px;
+}
+
+/* Log In */
+
+.logIn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logIn button {
+  background-color: transparent;
+  border: none;
+  color: #82b440;
+}
+
+.logIn button:hover, .logIn button:focus {
+  color: #efa308;
+}
+
+.signIn {
+  color: white;
+  font-size: 2.2rem;
+  margin: 16px 10px 0 0;
+}
+
+.logInFields {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Register fields */
+
+.registerFields {
+  position: absolute;
+  top: 5%;
+  background-color: white;
+  right: 15%;
+  padding: 10px 60px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  border: 1px  solid #4e007a;
+  border-radius: 5px;
+  z-index: 99;
+}
+
+.registerFields input {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 12px 5px;
+  font-size: 2rem;
+  border-radius: 5px;
+  border-color:#4e007a;
+  min-width: 320px;
+}
+
+.registerFields input:focus, .registerFields input:hover {
+  background-color: #eceff1;
+}
+
+.registerFields p {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.registerFields h2 {
+  text-align: left;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.logIn .registerButtons {
+  padding: 10px 5px;
+  background-color: #4e007a;
+  color: white;
+  font-size: 2rem;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.logIn .return {
+  font-size: 2rem;
+  text-decoration: underline;
+  padding: 5px 10px 5px 2px;
+  margin-top: 5px;
+  color: #4e007a;
+}
+
+.logIn .registerButtons:hover, .logIn .registerButtons:focus {
+    background-color: #82b440;
+    color: white;
+}
+
+.closeForm, .removeFromWishlist {
+  margin-bottom: 40px;
+  margin-right: -40px;
+  font-size: 1.2rem;
+  padding: 5px;
+}
+
+.closeForm svg, .removeFromWishlist {
+  color: #4e007a;
+}
+
+.closeForm:hover svg, .closeForm:focus svg, .removeFromWishlist:hover svg, .removeFromWishlist:focus svg {
+  color: #efa308;
+}
+
+/* Log In errors */
+
+.logIn .logInErrors, .classTwo h6, .classOne h6  {
+  max-width: 320px;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  color: red;
+}
+
+.logInErrors {
+  margin-top: 15px;
+}
+
+/* Style dropdown menu for cities (it's automatically from React, different naming) */
+
+.css-2b097c-container {
+  width: 100%;
+} 
+
+.css-yk16xz-control:focus, .css-g1d714-ValueContainer:hover, .css-1hb7zxy-IndicatorsContainer:hover, .css-1hb7zxy-IndicatorsContainer:focus {
+  background-color: #eceff1;
+  border-radius: 5px;
+} 
+
+/* Search fields */
+
+.searchFields {
+  display: flex;
+  justify-content: space-between;
+  min-height: 125px;
+}
+
+.searchFields form {
+  display: flex;
+}
+
+.citySearch {
+  width: 30%;
+}
+
+.keywords {
+  display: flex;
+  flex-direction: column;
+  width: calc(70% - 10px);
+  margin-left: 10px;
+}
+.keywordForm {
+  width: 100%;
+}
+
+form input[type="text"] {
+  width: 100%;
+  border: 1px #4e007a solid;
+  border-radius: 4px;
+  min-height: 59px;
+  padding: 10px 10px;
+}
+
+form input[type="text"]:focus, form input[type="text"]:hover {
+  background-color: #eceff1;
+}
+
+input[type="text"] {
+  min-height: 45px;
+}
+
+input::placeholder {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.searchFields button {
+  display: block;
+  width: 70px;
+  background-color: #efa308;
+  border-radius: 4px;
+  border: 1px #4e007a solid;
+}
+
+.searchFields button:focus, .searchFields button:hover {
+  background-color: #4e007a;
+  border: 1px white solid;
+}
+
+.searchFields button:focus svg, .searchFields button:hover svg {
+  color: white;
+}
+
+.searchFields button:active {
+  background-color: #82b440;
+}
+
+/* Search by keywords */
+.keywordsDiv {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 50px;
+  margin: 8px 0 0 10px;
+}
+
+.keywordsDiv p{
+  max-width: 450px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 70%;
+}
+
+.searchOptions {
+  color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchOptions button {
+  padding: 5px;
+  background-color: transparent;
+  color: white;
+  border-radius: 4px;
+  border: 1.5px #82b440 solid;
+  margin-right: 65px;
+  min-width: 200px;
+}
+
+.searchOptions button:focus, .searchOptions button:hover {
+  background-color: #4e007a;
+  border: 1.5px white solid;
+}
+
+/* Next/Previous buttons & page count */
+.nextPrevButtons {
+  display: flex;
+  align-items: center;
+  margin: 15px 0 2px -15px;
+  color: white;
+}
+
+.nextPrevButtons svg {
+  color:#82b440;
+  font-size: 4rem;
+}
+
+.nextPrevButtons button {
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+}
+
+.nextPrevButtons button:hover svg, .nextPrevButtons button:focus svg{
+  color: #efa308;
+}
+
+.nextPrevButtons button:hover, .nextPrevButtons button:focus{
+  background-color: transparent;
+  border: none; 
+}
+
+button[disabled] svg, button[disabled]:hover svg, button[disabled]:focus svg, button[disabled]:active svg{ 
+  color: #a7a7a7;
+}
+
+.pageCount {
+  min-width: 90px;
+  text-align: center;
+}
+
+.page {
+  margin-right: 10px;
+}
+
+/* No search results */
+.errorNoResults h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
+
+/* Error Axios didn't work */
+.error{
+  position: absolute;
+  background-color:  #4e007a;
+  color: white;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #efa308;
+  z-index: 3;
+  text-align: center;
+  min-width: 350px;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.blockView {
+  position:fixed;
+  height: 100vh;
+  min-height: 640px;
+  top: 0;
+  z-index: 2;
+  background-color: #eceff1;
+  width: 100%;
+}
+
+.error p {
+  font-size: 1.5rem;
+}
+
+.error button {
+  font-size: 2.1rem;
+  padding: 8px 15px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: none;
+}
+
+.error button:hover, .error button:focus {
+  background-color:  #efa308;
+  color: white;
+  border: none;
+}
+
+/* Main section */
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 80px;
+}
+
+section {
+  width: 75%;
+}
+
+aside {
+  margin-left: 40px;
+  width: calc(25% - 40px);
+  border: 2px solid #eceff1;
+  padding: 50px 30px 100px;
+  overflow-y:scroll;
+  max-height: 1000px;
+}
+
+/* Job Listings */
+
+.wishListManage h6, .wishListManage h6 {
+  margin:0 5px 20px 0;
+}
+.wishListManage {
+  height: 30px;
+  text-align: right;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.jobListing {
+  border: 2px solid #eceff1;
+  padding: 20px 40px 30px;
+  margin: 0 0 15px;
+  min-height: 150px;
+}
+
+.jobDescription {
+  display: flex;
+  justify-content: space-between;
+}
+
+section h2, aside h2 {
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+
+aside h2 {
+  font-size: 1.6rem;
+}
+
+aside a {
+  font-size: 1.6rem;
+  padding: 5px 3px;
+  min-width: 15px;
+  border-color: #efa308;
+  color: black;
+  margin-bottom: 15px;
+}
+
+aside a:hover, aside a:focus {
+  background-color: #efa308;
+  color: white;
+}
+
+aside h5 {
+  font-size: 2.2rem;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  color: #4e007a;
+}
+
+.removeFromWishlist {
+  background-color: transparent;
+  border: none;
+  font-size: 2.2rem;
+  padding: 10px;
+  margin-right: -25px;
+}
+
+.closeButtonWish {
+  display: flex;
+  justify-content: flex-end;
+  height: 30px;
+}
+
+.eachWish {
+  border-top: 2px solid #eceff1;
+}
+
+.title {
+  width: 35%;
+}
+
+.title h5 {
+  font-size: 1.6rem;
+}
+
+.company {
+  margin: 0 10px 0 20px;
+  width: calc(25% - 30px);
+}
+
+.description{
+  margin-top: 40px;
+  font-size: 1.7rem;
+}
+
+.buttonsInfo {
+  width: 40%;
+}
+
+/* Buttons Jobs */
+.showDetails, .saveForLater {
+  font-size: 1.6rem;
+  width: 150px;
+  padding: 15px 3px;
+  text-transform: uppercase;
+}
+
+.showDetails:hover, .showDetails:focus {
+    background-color: #82b440;
+    color: white;
+    border: 3px solid#82b440;
+}
+
+.saveForLater:hover, .saveForLater:focus {
+  background-color: transparent;
+  color: #82b440;
+  border: 3px solid #82b440;
+}
+
+.showDetails {
+  border: 3px solid#4e007a;
+  background-color: transparent;
+  color: #4e007a;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.saveForLater {
+  border: 3px solid #4e007a;
+  background-color:#4e007a;
+  color: white;
+  border-bottom-right-radius: 5px;  
+  border-top-right-radius: 5px;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.description time {
+  margin-top: 20px;
+  display: block;
+}
+
+.classTwo {
+  background-color: #eceff1;
+}
+
+.classTwo a {
+  background-color: #4e007a;
+  color: white;
+}
+
+.classTwo a:hover, .classTwo a:focus {
+  background-color: #82b440;
+  border-color: #82b440;
+}
+
+
+/* Media queries */
+
+@media (max-width: 1240px) {
+  /* Search fields */
+  .searchOptions button {
+    margin-right: 0;
+  }
+
+  section {
+    width: 65%;
+  }
+
+  aside {
+    margin-left: 30px;
+    width: calc(35% - 30px);
+    padding: 50px 30px 100px;
+  }
+
+  /* Job listings */
+
+  .title {
+    width: 35%;
+  }
+
+  .company {
+    margin: 0 10px;
+    width: calc(35% - 20px);
+  }
+
+  .buttonsInfo {
+    width: 30%;
+  }
+
+  .buttonsInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .showDetails {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .saveForLater {
+    border-bottom-left-radius: 5px;  
+    border-top-left-radius: 5px;
+  }
+
+}
+@media (max-width: 1000px) {
+
+  /* Search field */
+
+  .citySearch {
+    width: 45%;
+  }
+
+  .keywords {
+    width: calc(55% - 10px);
+  }
+
+  .keywordsDiv p, .searchOptions button {
+    font-size: 1.8rem;
+  }
+
+  .keywordsDiv {
+    margin-left: 0;
+  }
+
+  .keywordsDiv p {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .searchOptions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .signIn {
+    font-size: 1.9rem;
+  }
+
+  /* Job Listings */
+  .jobDescription {
+    flex-direction: column;
+  }
+
+  .title, .company, .buttonsInfo {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .buttonsInfo {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+}
+
+@media (max-width: 850px) {
+  /* Header */
+  header {
+    align-items: flex-start;
+    position: static;
+    min-height: 300px;
+    height: auto;
+  }
+
+  .logInFields {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .logIn {
+    flex-direction: column-reverse;
+    margin-top: 10px;
+  }
+
+  .searchFields {
+    flex-direction: column-reverse;
+  }
+
+  .keywords {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .searchOptions {
+    flex-direction: row;
+  }
+
+  .keywordsDiv {
+    align-items: flex-start;
+    min-height: 30px;
+  }
+  
+  .citySearch {
+    width: 100%;
+  }
+}
+
+@media (max-width: 740px) {
+  /* Search fields */
+
+  section {
+    width: 60%;
+  }
+
+  aside {
+    margin-left: 20px;
+    width: calc(40% - 20px);
+    padding: 50px 30px 100px 20px;
+  }
+
+  .buttonsInfo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Main section, job listings */
+  main {
+    flex-direction: column-reverse;
+  }
+
+  aside {
+    margin-left: 0px;
+    width: 100%;
+    padding: 20px 30px 20px;
+    overflow-x:scroll;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .wishList {
+    display: flex;
+    flex-direction: row; 
+  }
+
+  .wishList li {
+    min-width: 250px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 30px 15px 5px;
+    border-left: 1px solid #eceff1;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .title {
+    width: 100%
+  }
+
+  .company {
+    margin: 0;
+    width: 100%
+  }
+
+  .buttonsInfo {
+    width: 100%
+  }
+
+  .jobListing {
+    padding: 15px 10px;
+  }
+
+  /* keyword input form */
+  .keywordForm input::placeholder {
+    font-size: 1.6rem;
+    letter-spacing: 0.02rem;
+  }
+
+  /* Register form */
+
+  .registerFields {
+    top: 1%;
+    right: 5%;
+    padding: 10px 40px 30px 40px;
+    z-index: 1;
+    width: 288px;
+  }
+
+  .registerFields input {
+    min-width: 208px;
+  }
+}
+
+@media (max-width: 340px) {
+  form input[type="text"] {
+    width: 85%;
+  }
+
+  .description {
+    align-items: flex-start;
+  }
+
+  .wishListManage h6 {
+    font-size: 1.8rem;
+  }
+}
+
+
+
