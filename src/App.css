@@ -136,6 +136,8 @@ header {
 .logInFields {
   display: flex;
   justify-content: flex-end;
+  overflow: hidden;
+  margin-left: 15px;
 }
 
 /* Register fields */
@@ -748,6 +750,8 @@ aside h5 {
   .logInFields {
     justify-content: flex-end;
     width: 100%;
+    margin-left: 0px;
+    text-align: right;
   }
 
   .logIn {
@@ -875,6 +879,18 @@ aside h5 {
 
   .registerFields input {
     min-width: auto;
+  }
+}
+
+@media (max-width: 440px) {
+  .logInFields {
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .logInFields h5 {
+    font-size: 1.5rem;
   }
 }
 
