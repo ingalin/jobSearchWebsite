@@ -400,7 +400,7 @@ class App extends Component {
               </ul>
             </section>
             <aside>
-              {!this.state.userLoggedIn && <h5>Log In To Add Items To Wish List</h5>}
+              {!this.state.userLoggedIn && <h5>Sign In To Add Items To Wish List</h5>}
               {this.state.userLoggedIn && <h5>Saved Jobs</h5>}
               <FirebaseJobList passUserId={this.state.userLoggedIn} passSelectedOption={this.state.selectedOption} passKeywordsConverted={this.state.keywordsConverted} />
             </aside>

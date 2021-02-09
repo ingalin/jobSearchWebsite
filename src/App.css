@@ -566,6 +566,10 @@ aside h5 {
 
 .buttonsInfo {
   width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 5px;
 }
 
 /* Buttons Jobs */
@@ -602,6 +606,14 @@ aside h5 {
   color: white;
   border-bottom-right-radius: 5px;  
   border-top-right-radius: 5px;
+}
+
+.disabledButton {
+  padding: 6px;
+}
+
+.disabledButton:hover {
+  pointer-events: none;
 }
 
 .description {

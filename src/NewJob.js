@@ -105,7 +105,7 @@ class NewJob extends Component {
                         {/* Show/Hide Description on Button Click */}
                         <button className="showDetails" onClick={() => this.showData(keyId)}>{this.state.visible ? 'Hide Details' : 'Show Details'}</button>
                         {/* Add to Wish List Button, show onl when logged in, otherise a message */}
-                        {(this.props.passUserId != null ? <button className="saveForLater" onClick={() => this.addToWishlist(keyId, jobTitle, company, jobUrl)}>Save For Later</button> : null )}
+                        {(this.props.passUserId != null ? <button className="saveForLater" onClick={() => this.addToWishlist(keyId, jobTitle, company, jobUrl)}>Save For Later</button> : <button className="saveForLater disabledButton" disabled>Sign In to use Wish List</button> )}
                     </div>
                 </div>
                 {this.state.visible && this.state.idCliked == keyId ? 
