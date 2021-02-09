@@ -613,7 +613,9 @@ aside h5 {
 }
 
 .disabledButton:hover {
-  pointer-events: none;
+  background-color:#4e007a;
+  border-color: #4e007a;
+  color: white;
 }
 
 .description {
