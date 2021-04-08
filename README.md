@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+# Job Search Website
+
+Find your job in Toronto. Search by location or keywords, use your own wish list!
+
+Job search website built in REACT and Firebase for Toronto area. Filter results by smaller area or keywords.
+
+Register and Log In, to use your personal wish list and apply for the job!
+
+Stack used - JavaScript, React, Firebase, HTML, CSS
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
