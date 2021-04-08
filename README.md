@@ -8,6 +8,8 @@ Register and Log In, to use your personal wish list and apply for the job!
 
 Stack used - JavaScript, React, Firebase, HTML, CSS
 
+View Live - https://naughty-ride-83407d.netlify.app/
+
 
 ## Getting Started with Create React App
 
