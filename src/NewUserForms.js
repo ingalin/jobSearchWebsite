@@ -155,10 +155,10 @@ class NewUserForms extends Component {
         return (
             <div>
                 {/* Button to show Log In form */}
-                <button type="submit" onClick={this.showLogIn} aria-label="Sign In"><FontAwesomeIcon icon={faSignInAlt} size="3x" /></button>
+                <button type="submit" onClick={this.showLogIn} aria-label="Sign In"><span>Sign In</span> to save<FontAwesomeIcon icon={faSignInAlt} size="1x" /></button>
                 {this.state.showLogInForm && <div className="registerFields">
                     {/* Hide Log In */}
-                    <button type="submit" onClick={this.hideForms} className="closeForm" aria-label="Close sign in form"><FontAwesomeIcon icon={faTimesCircle} size="3x" /></button>
+                    <button type="submit" onClick={this.hideForms} className="closeForm" aria-label="Close sign in form"><FontAwesomeIcon icon={faTimesCircle} size="1x" /></button>
                     {/* Sign In form */}
                     <h2>Sign In</h2>
                     {!this.state.showRegister && <div><form onSubmit={this.handleSubmitLogIn} aria-live="polite">
@@ -171,7 +171,7 @@ class NewUserForms extends Component {
 
                         <button type="submit" className="registerButtons">Sign In</button>
                     </form>
-                    <p>or</p>
+                    <p>Not a user yet?</p>
                     <button type="submit" onClick={this.showRegister} className="registerButtons">Register New User</button></div>}
                     {/* Register form */}
                     {this.state.showRegister && <div><form onSubmit={this.handleSubmitNewUser} aria-live="polite">
@@ -187,7 +187,7 @@ class NewUserForms extends Component {
 
                         <button type="submit" className="registerButtons">Create User & Log In</button>
                     </form>
-                    <button type="submit" onClick={this.cancelRegister} className="return">Go Back</button>
+                 
                     </div>}
                     {/* Error messages on Register or Log In */}
                     <div className="logInErrors">
@@ -195,6 +195,7 @@ class NewUserForms extends Component {
                         {this.state.errorMessage !== '' && <h6>{this.state.errorMessage}</h6>}
                         {this.state.errorLogIn && <h6>{this.state.errorLogIn}</h6>}
                     </div>
+                    <button type="submit" onClick={this.cancelRegister} className="return">Go Back</button>
                 </div>}
 
             </div>

@@ -20,9 +20,9 @@ class NewJob extends Component {
 
     // Add a job to Wish List Firebase
     addToWishlist(thisId, jobTitle, company, jobUrl) {
-        if (!company || company == "") {company = "---"}
-        if (!jobTitle || jobTitle == "") { jobTitle = "---" }
-        if (!jobUrl || jobUrl == "") { jobUrl = `<a href="#"></a>` }
+        if (!company || company === "" || company.slice(-1) === "]") {company = ""}
+        if (!jobTitle || jobTitle === "") { jobTitle = "---" }
+        if (!jobUrl || jobUrl === "") { jobUrl = `<a href="#"></a>` }
             this.setState({
                 idWishlist: thisId,
                 titleWishlist: jobTitle, 
@@ -98,17 +98,17 @@ class NewJob extends Component {
                         {category !== "Unknown" && category && category !== "" ? <h5>{parse(category)}</h5> : null}
                     </div>
                     <div className="company">
-                        {company && company !== "" ? <h3>{parse(company)}</h3> : <h3>---</h3>}
+                        {company && company !== "" && company.slice(-1) !== "]" ? <h3>{parse(company)}</h3> : null}
                         {contract && contract !== "" ? <h4>{parse(contract)}</h4> : null}
                     </div>
                     <div className="buttonsInfo">
                         {/* Show/Hide Description on Button Click */}
                         <button className="showDetails" onClick={() => this.showData(keyId)}>{this.state.visible ? 'Hide Details' : 'Show Details'}</button>
                         {/* Add to Wish List Button, show onl when logged in, otherise a message */}
-                        {(this.props.passUserId != null ? <button className="saveForLater" onClick={() => this.addToWishlist(keyId, jobTitle, company, jobUrl)}>Save For Later</button> : <button className="saveForLater disabledButton" disabled>Sign In to use Wish List</button> )}
+                        {(this.props.passUserId != null ? <button className="saveForLater" onClick={() => this.addToWishlist(keyId, jobTitle, company, jobUrl)}>Save</button> : <button className="saveForLater disabledButton" disabled>Sign In to save</button> )}
                     </div>
                 </div>
-                {this.state.visible && this.state.idCliked == keyId ? 
+                {this.state.visible && this.state.idCliked === keyId ? 
                 <div className="description">
                     <div>
                         {description && description !== "" ? <p>{parse(description)}</p> : <p>No Description</p>}

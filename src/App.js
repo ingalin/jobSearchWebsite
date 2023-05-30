@@ -11,7 +11,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
-
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   constructor() {
@@ -119,7 +119,7 @@ class App extends Component {
         // Do AXIOS every time the area, search keywords are changed or next/previous page
         axios({
           method: "GET",
-          url: `https://api.adzuna.com/v1/api/jobs/ca/search/${this.state.selectedOption.pageNum}?app_id=18a606b4&app_key=35897d0612c0636126c9cdeddc06f44d&results_per_page=50${this.state.keywordsConverted}&location0=Canada&location1=Ontario&location2=Toronto${this.state.selectedOption.value}&sort_by=date`,
+          url: `https://api.adzuna.com/v1/api/jobs/ca/search/${this.state.selectedOption.pageNum}?app_id=18a606b4&app_key=35897d0612c0636126c9cdeddc06f44d&results_per_page=10${this.state.keywordsConverted}&location0=Canada&location1=Ontario&location2=Toronto${this.state.selectedOption.value}&sort_by=date`,
           responseType: "json",
         }).then((response) => {
           // Add classes to every object for styling
@@ -154,13 +154,13 @@ class App extends Component {
             })
           }
           // If max page number reached, disable Next button
-          if (this.state.selectedOption.pageNum == this.state.maxPageCount) {
+          if (this.state.selectedOption.pageNum === this.state.maxPageCount) {
             this.setState({
               nextButtonDisabled: true,
             })
           }
           // Show error message when no data retrieved
-          if (response.data.count == 0) {
+          if (response.data.count === 0) {
             this.setState({
               noFieldsErrorMessage: true,
               showPageCount: false
@@ -314,21 +314,7 @@ class App extends Component {
         </div>}
         <header>
               <div className="wrapper">
-                <div className="logIn">
-                  {/* <NewUserForms /> */}
-                  {/* Log In / Add New User forms */}
-                  <h1>Find Your Job In Toronto</h1>
-                  <div className="logInFields">
-                    {/* User Logged In */}
-                    {this.state.usersEmail ? <h5 className="signIn">Logged in as {this.state.usersEmail}</h5> : null}
-                    {this.state.errorLogOut && <h5 className="signIn">Log Out failed!</h5>}
-                    {/* Log In */}
-                    {!this.state.usersEmail && <h5 className="signIn">Sign In</h5>}
-                    {!this.state.usersEmail ? <NewUserForms /> : null}
-                    {/* Log Out */}
-                    {this.state.usersEmail ? <button type="submit" className="logOut" onClick={this.logOut} aria-label="Log out"><FontAwesomeIcon icon={faPowerOff} size="2x" /></button> : null}
-                  </div>
-                </div>
+                <h1>Job Search <span>Toronto, ON, Canada</span></h1>
                 <div className="searchFields">
                   <div className="citySearch">
                   {/* Using react-select package for the dropdown menu */}
@@ -338,10 +324,10 @@ class App extends Component {
                       options={this.state.countryList}
                       theme={theme => ({
                         ...theme,
-                        borderRadius: 5,
+                        borderRadius: 0,
                         colors: {
                           ...theme.colors,
-                          primary25: '#efa50e',
+                          primary25: '#eaeaea',
                           primary: '#4e007a',
                         }
                       })}
@@ -358,13 +344,13 @@ class App extends Component {
                   <div className="keywords">
                     <form className="keywordForm">
                       <label htmlFor="searchBy" className="srOnly">Search by job title, keywords, or company</label>
-                      <input id="searchBy" type="text" value={this.state.value} onChange={this.handleChangeForm} placeholder="Job title,  keywords, or company"/>
-                      <button type="submit" onClick={this.handleSubmit} aria-label="Search"><FontAwesomeIcon icon={faSearch} size="2x" /></ button>
+                      <input id="searchBy" type="text" value={this.state.value} onChange={this.handleChangeForm} placeholder="Search By Keywords"/>
+                      <button type="submit" onClick={this.handleSubmit} aria-label="Search">Search <FontAwesomeIcon icon={faSearch} size="1x" /></ button>
                     </form>
                     <div className="keywordsDiv">
                       {this.state.showEnteredKeywords && <div className="searchOptions">
-                        <p>Current search by: "{(this.state.previousKeywords)}"</p>
-                        <button type="submit" onClick={this.removeKeywords}>Clear Keywords</button>
+                        <p><span>Current search by: </span>"{(this.state.previousKeywords)}"</p>
+                        <button type="submit" onClick={this.removeKeywords} aria-label="Clear Keywords"><FontAwesomeIcon icon={faTimesCircle} size="1x" /></button>
                       </div>}
                     </div>
                   </div>
@@ -400,8 +386,23 @@ class App extends Component {
               </ul>
             </section>
             <aside>
-              {!this.state.userLoggedIn && <h5>Sign In To Add Items To Wish List</h5>}
-              {this.state.userLoggedIn && <h5>Saved Jobs</h5>}
+              {/* {!this.state.userLoggedIn && <h5>Your Saved Job List</h5>} */}
+              <div className="logIn">
+                  {/* <NewUserForms /> */}
+                  {/* Log In / Add New User forms */}
+                  
+                  <div className="logInFields">
+                    {/* User Logged In */}
+                    {this.state.usersEmail ? <h5 className="signIn signedInText">Logged in as <span>{this.state.usersEmail}</span></h5> : null}
+                    {this.state.errorLogOut && <h5 className="signIn">Log Out failed!</h5>}
+                    {/* Log In */}
+                    {!this.state.usersEmail && <h5 className="signIn">Your job listings</h5>}
+                    {!this.state.usersEmail ? <NewUserForms /> : null}
+                    {/* Log Out */}
+                    {this.state.usersEmail ? <button type="submit" className="logOut" onClick={this.logOut} aria-label="Sign out">Sign out<FontAwesomeIcon icon={faPowerOff} size="2x" /></button> : null}
+                  </div>
+                </div>
+              {this.state.userLoggedIn && <h5 className="savedJobsTitle">Your Saved Jobs</h5>}
               <FirebaseJobList passUserId={this.state.userLoggedIn} passSelectedOption={this.state.selectedOption} passKeywordsConverted={this.state.keywordsConverted} />
             </aside>
         </main>
