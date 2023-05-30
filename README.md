@@ -1,4 +1,17 @@
-# Getting Started with Create React App
+# Job Search Website
+
+Find your job in Toronto. Search by location or keywords, use your own wish list!
+
+Job search website built in REACT and Firebase for Toronto area. Filter results by smaller area or keywords.
+
+Register and Log In, to use your personal wish list and apply for the job!
+
+Stack used - JavaScript, React, Firebase, HTML, CSS
+
+View Live - https://naughty-ride-83407d.netlify.app/
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +81,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+![Job_serch_website](https://github.com/ingalin/ingaLocmelePortfolio/blob/master/styles/assets/media-774068_1280_job.png)
