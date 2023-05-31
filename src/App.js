@@ -393,16 +393,16 @@ class App extends Component {
                   
                   <div className="logInFields">
                     {/* User Logged In */}
-                    {this.state.usersEmail ? <h5 className="signIn signedInText">Logged in as <span>{this.state.usersEmail}</span></h5> : null}
+                    {this.state.usersEmail ? <h2 className="signIn signedInText">Logged in as <span>{this.state.usersEmail}</span></h2> : null}
                     {this.state.errorLogOut && <h5 className="signIn">Log Out failed!</h5>}
                     {/* Log In */}
-                    {!this.state.usersEmail && <h5 className="signIn">Your job listings</h5>}
+                    {!this.state.usersEmail && <h2 className="signIn yourListings">Your job listings</h2>}
                     {!this.state.usersEmail ? <NewUserForms /> : null}
                     {/* Log Out */}
                     {this.state.usersEmail ? <button type="submit" className="logOut" onClick={this.logOut} aria-label="Sign out">Sign out<FontAwesomeIcon icon={faPowerOff} size="2x" /></button> : null}
                   </div>
                 </div>
-              {this.state.userLoggedIn && <h5 className="savedJobsTitle">Your Saved Jobs</h5>}
+              {this.state.userLoggedIn && <h3 className="savedJobsTitle">Your Saved Jobs</h3>}
               <FirebaseJobList passUserId={this.state.userLoggedIn} passSelectedOption={this.state.selectedOption} passKeywordsConverted={this.state.keywordsConverted} />
             </aside>
         </main>

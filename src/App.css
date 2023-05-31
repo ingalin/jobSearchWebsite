@@ -335,12 +335,14 @@ h3 {
   font-family: 'Nanum Gothic', sans-serif;
 }
 
-h4 {
+h4,
+.jobCategory {
   letter-spacing: 2px;
   text-transform: capitalize;
   font-style: italic;
   font-weight: 200;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  margin: 5px 0;
 }
 
 h5 {
@@ -591,6 +593,13 @@ header {
 .savedJobsTitle {
   font-size: 2.5rem;
   margin: 2rem 2rem 2.5rem;
+}
+
+.yourListings,
+.savedJobsTitle {
+  color: #4e007a;
+  text-align: center;
+  font-weight: 700;
 }
 
 /* Style dropdown menu for cities (it's automatically from React, different naming) */
@@ -1138,8 +1147,8 @@ aside h5 {
   }
 
   .company {
-    margin: 0 10px;
-    width: calc(35% - 20px);
+    margin: 0 20px;
+    width: calc(35% - 40px);
   }
 
   .buttonsInfo {

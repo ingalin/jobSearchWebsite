@@ -95,11 +95,11 @@ class NewJob extends Component {
                 <div className="jobDescription">
                     <div className="title">
                         {jobTitle && jobTitle !== "" ? <h2>{parse(jobTitle)}</h2> : <h2>Other Jobs</h2>}
-                        {category !== "Unknown" && category && category !== "" ? <h5>{parse(category)}</h5> : null}
+                        {category !== "Unknown" && category && category !== "" ? <p className="jobCategory">{parse(category)}</p> : null}
                     </div>
                     <div className="company">
                         {company && company !== "" && company.slice(-1) !== "]" ? <h3>{parse(company)}</h3> : null}
-                        {contract && contract !== "" ? <h4>{parse(contract)}</h4> : null}
+                        {contract && contract !== "" ? <p className="jobCategory">{parse(contract)}</p> : null}
                     </div>
                     <div className="buttonsInfo">
                         {/* Show/Hide Description on Button Click */}
