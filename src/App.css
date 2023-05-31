@@ -1058,8 +1058,6 @@ aside h5 {
   border: 3px solid#4e007a;
   background-color: transparent;
   color: #4e007a;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
 }
 
 .saveForLater.disabledButton {

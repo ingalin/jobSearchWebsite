@@ -1,4 +1,4 @@
-import './App.css';
+import './App-min.css'; 
 import { Component } from 'react';
 import axios from "axios";
 import NewJob from "./NewJob";
